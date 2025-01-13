@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'riscv64'
+    }
     
     environment {
         PATH = "/usr/bin:/bin:/usr/sbin:/sbin"
