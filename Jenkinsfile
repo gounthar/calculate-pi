@@ -38,6 +38,12 @@ pipeline {
                 sh './pi_calculator 20'
             }
         }
+        
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: 'pi_calculator', fingerprint: true
+            }
+        }
 
         stage('Clean') {
             steps {
@@ -49,11 +55,10 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline completed successfully! The binary has been archived.'
         }
         failure {
             echo 'Pipeline failed. Check the logs for details.'
         }
     }
 }
-
