@@ -9,6 +9,15 @@ pipeline {
             }
         }
 
+        stage('Check Environment') {
+            steps {
+                sh '''
+                    echo "PATH: $PATH"
+                    which make
+                    make --version
+            }
+        }
+        
         stage('Build') {
             steps {
                 // Compile the C program using Makefile
