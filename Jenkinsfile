@@ -15,6 +15,7 @@ pipeline {
                     echo "PATH: $PATH"
                     which make
                     make --version
+                   '''
             }
         }
         
